@@ -14,10 +14,10 @@ import com.app.items.models.service.IItemService;
 @RestController
 public class ItemController {
 	
+	//@Qualifier("serviceRestTemplate")
 	private IItemService iItemService;
 	
 	@Autowired
-	//@Qualifier("serviceFeign")
 	public ItemController(@Qualifier("serviceFeign") IItemService iItemService) {
 		this.iItemService = iItemService;
 	}
