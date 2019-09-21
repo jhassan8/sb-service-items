@@ -24,13 +24,13 @@ public class ItemController {
 		this.iItemService = iItemService;
 	}
 	
-	@GetMapping("items")
+	@GetMapping("/all")
 	public List<Item> items() {
 		return iItemService.findAll();
 	}
 	
 	@HystrixCommand(fallbackMethod = "alternMethod")
-	@GetMapping("item/{id}/count/{count}")
+	@GetMapping("/view/{id}/count/{count}")
 	public Item item(@PathVariable Long id, @PathVariable Integer count) {
 		return iItemService.findById(id, count);
 	}
