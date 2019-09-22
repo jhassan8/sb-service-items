@@ -10,8 +10,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.items.models.Item;
@@ -70,5 +75,23 @@ public class ItemController {
 		returned.put("port", portConfig);
 		
 		return new ResponseEntity<Map<String, String>>(returned, HttpStatus.OK);
+	}
+	
+	@PostMapping("/new-product")
+	@ResponseStatus(HttpStatus.CREATED)
+	public Product creatProduct(@RequestBody Product product) {
+		return iItemService.createProduct(product);
+	}
+	
+	@PutMapping("/update-product/{id}")
+	@ResponseStatus(HttpStatus.CREATED)
+	public Product updateProduct(@RequestBody Product product, @PathVariable Long id) {
+		return iItemService.updateProduct(product, id);
+	}
+	
+	@DeleteMapping("/delete-product/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT) 
+	public void deleteProduct(@PathVariable Long id){
+		iItemService.deleteProduct(id);
 	}
 }
