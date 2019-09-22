@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.app.items.client.ProductClientRest;
 import com.app.items.models.Item;
-import com.app.items.models.Product;
+import com.app.commons.models.entity.Product;
 
 @Service("serviceFeign")
 //@Primary

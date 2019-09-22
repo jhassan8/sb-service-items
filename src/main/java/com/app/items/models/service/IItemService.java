@@ -3,7 +3,7 @@ package com.app.items.models.service;
 import java.util.List;
 
 import com.app.items.models.Item;
-import com.app.items.models.Product;
+import com.app.commons.models.entity.Product;
 
 public interface IItemService {
 

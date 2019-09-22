@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.items.models.Item;
-import com.app.items.models.Product;
+import com.app.commons.models.entity.Product;
 import com.app.items.models.service.IItemService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
